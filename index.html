@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Habit Tracker</title>
+    <style>
+        /* Basic CSS for layout and styling */
+        .habit-item { border-bottom: 1px solid #eee; padding: 10px 0; display: flex; align-items: center; justify-content: space-between; }
+        .habit-details { flex-grow: 1; }
+        .habit-actions button { margin-left: 10px; }
+        .habit-progress input[type="checkbox"] { margin-right: 10px; }
+        .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4); }
+        .modal-content { background-color: #fefefe; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%; }
+        .close-button { color: #aaa; float: right; font-size: 28px; font-weight: bold; }
+        .close-button:hover, .close-button:focus { color: black; text-decoration: none; cursor: pointer; }
+        /* ... more styles ... */
+    </style>
+</head>
+<body>
+    <h1>Daily Habit Tracker</h1>
+
+    <div id="add-habit-section">
+        <h2>Add New Habit</h2>
+        <form id="add-habit-form">
+            <label for="habit-title">Title:</label>
+            <input type="text" id="habit-title" required><br><br>
+
+            <label for="habit-category">Category (Optional):</label>
+            <input type="text" id="habit-category"><br><br>
+
+            <button type="submit">Add Habit</button>
+        </form>
+    </div>
+
+    <div id="habits-list">
+        <h2>Your Habits</h2>
+        <p id="no-habits">No habits added yet.</p>
+    </div>
+
+    <div id="habit-details-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 id="modal-habit-title"></h3>
+            <p>Total Completions: <span id="modal-total-completions">0</span></p>
+            <p>Current Streak: <span id="modal-current-streak">0</span> days</p>
+            <div id="modal-history-log">
+                </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
